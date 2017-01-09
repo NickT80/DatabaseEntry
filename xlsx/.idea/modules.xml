@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RemoteDataEntry.iml" filepath="$PROJECT_DIR$/RemoteDataEntry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xlsx.iml" filepath="$PROJECT_DIR$/xlsx.iml" />
     </modules>
   </component>
 </project>
