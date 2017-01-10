@@ -14,18 +14,18 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-
 public class ReadXLSX {
 
-    //public static void main(String[] args) throws IOException {
-    private String readXLSXFile() throws IOException {
+    public XSSFCell[] readXLSXFile() throws IOException {
+
         FileInputStream fis = new FileInputStream(new File("D:\\xlsx\\DatabaseInject.xlsx"));
         XSSFWorkbook wb = new XSSFWorkbook(fis);
         XSSFWorkbook test = new XSSFWorkbook();
         XSSFSheet sheet = wb.getSheetAt(0);
-        XSSFRow row;
+        XSSFRow row = null;
         XSSFCell cell;
         Iterator rows = sheet.rowIterator();
+
         XSSFCell name = wb.getSheetAt(0).getRow(0).getCell(0);
         XSSFCell name2 = wb.getSheetAt(0).getRow(1).getCell(0);
         XSSFCell cost = wb.getSheetAt(0).getRow(0).getCell(1);
@@ -33,24 +33,14 @@ public class ReadXLSX {
         XSSFCell name3 = wb.getSheetAt(0).getRow(2).getCell(0);
         XSSFCell cost3 = wb.getSheetAt(0).getRow(2).getCell(1);
 
-        System.out.println(name + " " +  " " + cost + " ");
-        System.out.println(name2 + " " +  " " + cost2 + " ");
-        System.out.println(name3 + " makes " +  " " + cost3 + " an hour ");
+        XSSFCell[] data = {name, name2, cost, cost2};
 
-       /* while (rows.hasNext()) {
-            row = (XSSFRow) rows.next();
-            Iterator cells = row.cellIterator();
-            while (cells.hasNext()) {
-                cell = (XSSFCell) cells.next();
-                if (cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
-                    System.out.print(cell.getStringCellValue() + " ");
-                } else if (cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
-                    System.out.print(cell.getNumericCellValue() + " ");
-                } else {
-                }
-            }
-            System.out.println();
-        }*/
-        return name, name2, cost, cost2;
+        /*System.out.println(name + " " +  " " + cost + " ");
+        System.out.println(name2 + " " +  " " + cost2 + " ");
+        System.out.println(name3 + " makes " +  " " + cost3 + " an hour ");*/
+
+        //System.out.println(data[1]);
+
+        return data;
     }
 }

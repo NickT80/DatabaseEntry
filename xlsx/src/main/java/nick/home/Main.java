@@ -3,7 +3,7 @@ package nick.home;
 import nick.POI.ReadXLSX;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.SQLException;
 
 /**
  * Created by Nick Taylor on 12/30/2016.
@@ -11,13 +11,14 @@ import java.sql.*;
 
 public class Main {
 
-    public static void main(String[] args) throws SQLException, IOException {
-        Connection conn = null;
-        Statement stmt = null;
-        //establish connection
+    public static void main(String[] args) throws SQLException, IOException{
+
 
         ReadXLSX xl = new ReadXLSX();
-        System.out.println(xl.toString());
+        xl.readXLSXFile();
+        DatabaseConn dbConn = new DatabaseConn();
+        dbConn.OpenDatabase();
+
 
         /*try {
             Class.forName("org.postgresql.Driver");

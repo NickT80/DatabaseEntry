@@ -1,11 +1,15 @@
 package nick.home;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  * Created by Nick Taylor on 12/31/2016.
  */
 
 public class DatabaseConn {
-    /*Connection conn = null;
+    Connection conn = null;
 
 
     public void OpenDatabase() {
@@ -42,6 +46,6 @@ public class DatabaseConn {
         }catch (SQLException e){
             e.printStackTrace();
         }
-    }*/
+    }
 }
 
