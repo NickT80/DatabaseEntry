@@ -13,12 +13,16 @@ public class Main {
 
     public static void main(String[] args) throws SQLException, IOException{
 
-
         ReadXLSX xl = new ReadXLSX();
         xl.readXLSXFile();
+
         DatabaseConn dbConn = new DatabaseConn();
         dbConn.OpenDatabase();
 
+        DatabaseStatement dbData = new DatabaseStatement();
+        dbData.DataRC();
+
+        System.out.println(dbData.name);
 
         /*try {
             Class.forName("org.postgresql.Driver");

@@ -12,12 +12,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ReadXLSX {
 
-    public XSSFCell[] readXLSXFile() throws IOException {
+    public static ArrayList<XSSFCell> readXLSXFile() throws IOException {
 
+
+        ArrayList<XSSFCell> data = new ArrayList<XSSFCell>();
         FileInputStream fis = new FileInputStream(new File("D:\\xlsx\\DatabaseInject.xlsx"));
         XSSFWorkbook wb = new XSSFWorkbook(fis);
         XSSFWorkbook test = new XSSFWorkbook();
@@ -33,13 +36,14 @@ public class ReadXLSX {
         XSSFCell name3 = wb.getSheetAt(0).getRow(2).getCell(0);
         XSSFCell cost3 = wb.getSheetAt(0).getRow(2).getCell(1);
 
-        XSSFCell[] data = {name, name2, cost, cost2};
+        data.add(name);
+        data.add(cost);
+        data.add(name2);
+        data.add(cost2);
 
         /*System.out.println(name + " " +  " " + cost + " ");
         System.out.println(name2 + " " +  " " + cost2 + " ");
         System.out.println(name3 + " makes " +  " " + cost3 + " an hour ");*/
-
-        //System.out.println(data[1]);
 
         return data;
     }

@@ -1,17 +1,42 @@
 package nick.home;
 
 
+import nick.POI.ReadXLSX;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 /**
  * Created by Nick Taylor on 12/31/2016.
  */
 
-public class DatabaseStatement {
+public class DatabaseStatement{
 
-    /*Statement stmt = null;
+    XSSFCell name;
+    XSSFCell name2;
+    XSSFCell cost;
+    XSSFCell cost2;
 
-    public void DatabaseStatement(Connection c) throws SQLException {
 
-        stmt = c.createStatement();
+    public String DataRC() throws IOException {
+        ArrayList myData = ReadXLSX.readXLSXFile();
+        name  = (XSSFCell) myData.get(0);
+        name2 = (XSSFCell) myData.get(1);
+        cost  = (XSSFCell) myData.get(2);
+        cost2 = (XSSFCell) myData.get(3);
+
+        return null;
+    }
+
+    Statement stmt = null;
+
+    public void DatabaseStatement(DatabaseConn conn) throws SQLException, IOException {
+
+        System.out.println(name);
+        stmt = conn.createStatement();
 
         System.out.println("Attempting to create a statement.");
         try {
@@ -31,7 +56,7 @@ public class DatabaseStatement {
     public void AddData(String name) throws SQLException {
         System.out.println("Attempting to add data.");
         String sql = "INSERT INTO PEOPLE (ID,NAME,AGE,ADDRESS,SALARY) "
-                + "VALUES (1,'"+name+"', 32, 'California', '100000');";
+                + "VALUES (name,'"+name+"', 32, 'California', '100000');";
         stmt.executeUpdate(sql);
     }
 
@@ -42,6 +67,5 @@ public class DatabaseStatement {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
-
+    }
 }
