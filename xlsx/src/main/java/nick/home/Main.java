@@ -22,7 +22,17 @@ public class Main {
         DatabaseStatement dbData = new DatabaseStatement();
         dbData.DataRC();
 
-        System.out.println(dbData.name);
+        dbData.DatabaseStatement();
+        dbData.AddData();
+        dbData.RetrieveData();
+        dbData.DatabaseStatementClose();
+
+        dbConn.Commit();
+        dbConn.CloseDatabase();
+
+
+
+        //System.out.println(dbData.name);
 
         /*try {
             Class.forName("org.postgresql.Driver");
@@ -92,11 +102,4 @@ public class Main {
         conn.commit();
         conn.close();*/
     }
-
-   /* public void addPeople(int ID, String NAME, int AGE, int ADDRESS, int SALARY) throws SQLException {
-        System.out.println("Attempting to add data.");
-        String sql = "INSERT INTO PEOPLE (ID,NAME,AGE,ADDRESS,SALARY) "
-                + "VALUES (1,'John', 32, 'California', '100000');";
-        stmt.executeUpdate(sql);
-    }*/
 }

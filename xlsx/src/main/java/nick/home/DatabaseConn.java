@@ -11,7 +11,6 @@ import java.sql.SQLException;
 public class DatabaseConn {
     Connection conn = null;
 
-
     public void OpenDatabase() {
 
         try {

@@ -21,7 +21,7 @@ public class ReadXLSX {
 
 
         ArrayList<XSSFCell> data = new ArrayList<XSSFCell>();
-        FileInputStream fis = new FileInputStream(new File("D:\\xlsx\\DatabaseInject.xlsx"));
+        FileInputStream fis = new FileInputStream(new File("\\\\NicksWhiteBox\\d\\xlsx\\DatabaseInject.xlsx"));
         XSSFWorkbook wb = new XSSFWorkbook(fis);
         XSSFWorkbook test = new XSSFWorkbook();
         XSSFSheet sheet = wb.getSheetAt(0);
