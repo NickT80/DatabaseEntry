@@ -37,13 +37,13 @@ public class ReadXLSX {
         XSSFCell cost3 = wb.getSheetAt(0).getRow(2).getCell(1);
 
         data.add(name);
-        data.add(cost);
         data.add(name2);
+        data.add(cost);
         data.add(cost2);
 
-        /*System.out.println(name + " " +  " " + cost + " ");
+        System.out.println(name + " " +  " " + cost + " ");
         System.out.println(name2 + " " +  " " + cost2 + " ");
-        System.out.println(name3 + " makes " +  " " + cost3 + " an hour ");*/
+        System.out.println(name3 + " makes " +  " " + cost3 + " an hour ");
 
         return data;
     }

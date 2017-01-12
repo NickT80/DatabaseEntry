@@ -3,7 +3,9 @@ package nick.home;
 import nick.POI.ReadXLSX;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by Nick Taylor on 12/30/2016.
@@ -12,25 +14,14 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String[] args) throws SQLException, IOException{
-
+        Connection c = null;
+        Statement stmt = null;
         ReadXLSX xl = new ReadXLSX();
         xl.readXLSXFile();
 
         DatabaseConn dbConn = new DatabaseConn();
+        dbConn.DataRC();
         dbConn.OpenDatabase();
-
-        DatabaseStatement dbData = new DatabaseStatement();
-        dbData.DataRC();
-
-        dbData.DatabaseStatement();
-        dbData.AddData();
-        dbData.RetrieveData();
-        dbData.DatabaseStatementClose();
-
-        dbConn.Commit();
-        dbConn.CloseDatabase();
-
-
 
         //System.out.println(dbData.name);
 

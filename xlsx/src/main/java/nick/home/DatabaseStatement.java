@@ -16,27 +16,28 @@ import java.util.ArrayList;
  */
 
 public class DatabaseStatement {
-    Connection c = null;
-    Statement stmt = null;
+
+
     XSSFCell name;
     XSSFCell name2;
     XSSFCell cost;
     XSSFCell cost2;
 
-    public String DataRC () throws IOException {
+    public void DataRC () throws IOException {
             ArrayList myData = ReadXLSX.readXLSXFile();
             name = (XSSFCell) myData.get(0);
             name2 = (XSSFCell) myData.get(1);
             cost = (XSSFCell) myData.get(2);
             cost2 = (XSSFCell) myData.get(3);
-            return null;
+
         }
 
-    public void DatabaseStatement() throws SQLException, IOException {
+    public void DatabaseStatement(Connection c, Statement stmt) throws SQLException, IOException {
 
         System.out.println("Attempting to create a statement.");
         try {
             stmt = c.createStatement();
+            System.out.println("inside");
             String sqlStatement = "CREATE TABLE CONTRACTS " +
                     "(ID INT PRIMARY KEY     NOT NULL," +
                     " NAME           TEXT    NOT NULL, " +
@@ -48,7 +49,7 @@ public class DatabaseStatement {
         }
     }
 
-    public void AddData() throws SQLException {
+    public void AddData(Connection c, Statement stmt ) throws SQLException {
         stmt = c.createStatement();
         System.out.println("Attempting to add data.");
         String sqlAdd = "INSERT INTO PEOPLE (ID,NAME,COST) "
@@ -59,7 +60,7 @@ public class DatabaseStatement {
         stmt.executeUpdate(sqlAdd2);
     }
 
-    public void DatabaseStatementClose() {
+    public void DatabaseStatementClose(Statement stmt) {
         try {
             stmt.close();
             System.out.println("Statement closed");
@@ -68,7 +69,7 @@ public class DatabaseStatement {
         }
     }
 
-    public void RetrieveData() throws SQLException {
+    public void RetrieveData(Statement stmt) throws SQLException {
         ResultSet rs = stmt.executeQuery("SELECT * FROM CONTRACTS;");
         while (rs.next()) {
             int id = rs.getInt("id");
@@ -76,7 +77,7 @@ public class DatabaseStatement {
             int cost = rs.getInt("cost");
             System.out.println("ID = " + id);
             System.out.println("NAME = " + name);
-            System.out.println("AGE = " + cost);
+            System.out.println("COST = " + cost);
             System.out.println();
         }
         rs.close();
